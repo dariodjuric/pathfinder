@@ -89,6 +89,10 @@ export function move(
   return possibleMoves[0];
 }
 
+/**
+ * Starting from the start character, navigates through the map until end character.
+ * @param map
+ */
 export function navigate(map: Map) {
   const result = {
     pathAsCharacters: "",
