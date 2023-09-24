@@ -13,7 +13,9 @@ interface Movement {
   direction: Direction;
 }
 
-function getPrioritizedDirections(previousDirection: Direction | null): Direction[] {
+function getPrioritizedDirections(
+  previousDirection: Direction | null,
+): Direction[] {
   const allDirections: Direction[] = ["up", "right", "down", "left"];
   return allDirections.sort((a, b) =>
     a === previousDirection ? -1 : (b === previousDirection ? 1 : 0)
