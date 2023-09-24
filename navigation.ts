@@ -13,6 +13,10 @@ interface Movement {
   direction: Direction;
 }
 
+/**
+ * Gets a list of possible directions, but puts the previous direction in front.
+ * @param previousDirection Previous direction
+ */
 function getPrioritizedDirections(
   previousDirection: Direction | null,
 ): Direction[] {
@@ -22,6 +26,13 @@ function getPrioritizedDirections(
   );
 }
 
+/**
+ * Gets a list of possible directions from the current node.
+ * Directions are ordered by priority.
+ *
+ * @param currentNode Current node
+ * @param previousDirection Previous direction
+ */
 function getValidDirections(
   currentNode: Node,
   previousDirection: Direction | null,
