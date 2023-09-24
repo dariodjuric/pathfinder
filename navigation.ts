@@ -121,6 +121,7 @@ export function navigate(map: Map) {
 }
 
 export function collectLetters(traversedNodes: Node[]) {
+  // Use a set to keep track of which letters' coordinates were already collected
   const seen = new Set<string>();
 
   return traversedNodes.filter((node) => {
