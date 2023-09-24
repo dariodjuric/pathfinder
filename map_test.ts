@@ -38,7 +38,7 @@ Deno.test("can create a map from a jagged matrix", () => {
       `;
   const map = createMap(stringMap);
   // Upper-right corner
-  assertEquals(map.getNode({x: 20, y: 1})?.character, '+')
+  assertEquals(map.getNode({ x: 20, y: 1 })?.character, "+");
   // Lower-right corner
-  assertEquals(map.getNode({x: 13, y: 8})?.character, 'x')
+  assertEquals(map.getNode({ x: 13, y: 8 })?.character, "x");
 });
