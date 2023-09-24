@@ -13,6 +13,13 @@ interface Movement {
   direction: Direction;
 }
 
+function getPrioritizedDirections(previousDirection: Direction | null): Direction[] {
+  const allDirections: Direction[] = ["up", "right", "down", "left"];
+  return allDirections.sort((a, b) =>
+    a === previousDirection ? -1 : (b === previousDirection ? 1 : 0)
+  );
+}
+
 function getValidDirections(
   currentNode: Node,
   previousDirection: Direction | null,
@@ -26,20 +33,7 @@ function getValidDirections(
     }
   }
 
-  const validDirections = [] as Direction[];
-  const allDirections: Direction[] = ["up", "right", "down", "left"];
-  if (previousDirection !== null) {
-    // Last direction takes priority over other directions
-    validDirections.push(previousDirection);
-  }
-
-  validDirections.push(
-    ...allDirections.filter((direction) =>
-      previousDirection === null || direction !== previousDirection
-    ),
-  );
-
-  return validDirections;
+  return getPrioritizedDirections(previousDirection);
 }
 
 export function move(
