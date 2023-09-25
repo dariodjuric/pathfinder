@@ -30,7 +30,7 @@ export interface Map {
 export function createMap(stringMap: string): Map {
   validateStringMap(stringMap);
 
-  const rows = stringMap.split("\n");
+  const rows = stringMap.split(/\r?\n/);
   // Store the characters in a two-dimensional array, where empty space are nulls
   const matrix: (string | null)[][] = rows.map((row) =>
     Array.from(row).map(replaceWithNull)
